@@ -1,13 +1,23 @@
 package com.example.demo;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.demo.domain.User;
+import org.springframework.web.bind.annotation.*;
+
 @RestController
+@RequestMapping("exe")
 public class HelloController {
-    @RequestMapping(value="hello",method= RequestMethod.GET)
-    public String  hello(){
-        return "hello word!";
+    @RequestMapping(value="hello/{name}",method= RequestMethod.GET)
+    public String  hello(
+            @PathVariable String name,
+            @RequestParam String hey
+    ){
+        return "hello word!\n"+name+" "+hey;
     }
+    @RequestMapping(value="/test",method = RequestMethod.POST)
+    public User  user(@RequestBody User user){
+        return user;
+    }
+
+
 
 }
