@@ -7,6 +7,7 @@ public class User {
     private String name;
     @ApiModelProperty(value = "年龄",example = "18")
     private String age;
+    private String t;
 
     public String getName() {
         return name;
